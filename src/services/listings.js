@@ -34,11 +34,9 @@ export async function fetchHomepageCityListings(cities = ['Miami'], state = 'FL'
   }
 }
 
-export async function fetchHomepageFeaturedListings(limit = 10, minPrice = 3000) {
+export async function fetchHomepageFeaturedListings() {
   try {
-    const response = await axios.get(`${API_BASE}/listings/homepage_featured`, {
-      params: { limit, min_price: minPrice }
-    })
+    const response = await axios.get(`${API_BASE}/listings/homepage_featured`)
     return response.data  // { type: 'featured', listings: [...] }
   } catch (error) {
     console.error('Error fetching featured listings:', error)
